@@ -1,0 +1,221 @@
+@import url("https://fonts.google.com/specimen/Nunito+Sans");
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+/* :root{
+  --bg-color: hsl(0, 0%, 98%);
+  --font-color: hsl(200, 15%, 8%);
+  --bg-two-color: hsl(207, 26%, 17%);
+  --font-two-color:hsl(0, 0%, 100%);
+} */
+.dark-mode{
+  --bg-color: hsl(207, 26%, 17%);
+  --font-color: hsl(0, 0%, 100%);
+  --country-bg-color:hsl(209, 23%, 22%);
+  background-color: var(--bg-color);
+  color: var(--font-color) !important;
+
+
+}
+body{
+  --bg-color: hsl(0, 0%, 98%);
+  --font-color: hsl(200, 15%, 8%);
+  --country-bg-color: hsl(0, 0%, 100%);
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  color: var(--font-color);
+  font-family: Nunito Sans,sans-serif;
+
+}
+.moon , .theme-change , .caret{
+  color: var(--font-color);
+}
+#head-section{
+  
+ box-shadow: 0 0 6px rgba(0,0, 0, 0.3);
+
+}
+
+.intro > h3{
+  font-size: 18px;
+  font-weight: 700;
+  
+}
+.form-control{
+  max-width: 400px;
+  height: 54px;
+  box-shadow: 0 0 6px rgba(0,0, 0, 0.3);
+  position: relative;
+  background-color: var(--country-bg-color);
+}
+
+.form-control input{
+  width: 100%;
+  height: 100%;
+  padding: 14px 12px;
+  font-size: 16px;
+  outline: 0;
+  background-color: transparent;
+}
+.form-control > i{
+  position: absolute;
+  top: 20px;
+  cursor: pointer;
+}
+#my-input > input[placeholder]{
+  margin-left: 10px;
+  color: var(--font-color);
+  
+}
+.fa-search{
+  color: var(--font-color);
+}
+button{
+  border: 0;
+  outline: none;
+  background: transparent;
+}
+.switch{
+  font-size: 18px;
+  cursor: pointer;
+
+}
+.dropitcon{
+  width: 200px;
+    margin-top: 0px;
+
+}
+.main-list{
+ height: 50px;
+ font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 0 5px rgba(0,0, 0, 0.3);
+  position: relative;
+} 
+.my-list{
+  background-color: var(--country-bg-color);
+  position: absolute;
+  box-shadow: 0 0 5px rgba(0,0, 0, 0.3);
+  z-index: 1;
+  cursor: pointer;
+  color: var(--font-color);
+
+  
+}
+.drop-menu{
+  display: block;
+}
+.my-list > li{
+  width: 200px;
+  font-size: 14px;
+  padding-left: 25px;
+  line-height: 1.7;
+  list-style-type: none;
+
+} 
+
+#countries{
+  grid-row-gap: 20px ;
+
+}
+.country{
+  min-height: 300px;
+  box-shadow:  0 0 5px rgba(0,0, 0, 0.3);
+  background-color: var(--country-bg-color);
+  color: var(--font-color);
+ 
+}
+.country > img{
+  object-fit: cover;
+}
+.card-img-top{
+  height: 150px;
+}
+.name{
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--font-color);
+}
+.paragraph{
+  line-height: 0.7;
+  font-size: 12px;
+  margin: 0;
+  color: var(--font-color);
+}
+/* STYLING THE DETAIL PAGE  */
+/* styling button */
+.back-button{
+  width: 120px;
+  height: 35px;
+  box-shadow:  0 0 5px rgba(0,0, 0, 0.3);
+  color: var(--font-color);
+  background-color: var(--bg-color);
+ 
+}
+
+.country-name{
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--font-color);
+}
+
+.detail-paragraph{
+  line-height: 1.1;
+  font-size: 16px;
+}
+
+.country-button{
+  box-shadow:  0 0 5px rgba(0,0, 0, 0.3);
+  color: var(--font-color);
+}
+.myrow{
+  border: 1px solid black;
+}
+.detail-img{
+  min-height: 300px;
+}
+.back{
+  color: var(--font-color);
+}
+a{
+  text-decoration: none;
+  color: var(--font-color);
+}
+a:hover{
+  color: var(--font-color);
+}
+
+.show-page{
+  display: none;
+}
+.show{
+  display: block;
+}
+.detail-page{
+  position: fixed;
+  top:0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  background-color: var(--bg-color);
+}
+
+
+@media only screen and (max-width:414px){
+  .intro > h3 {
+    font-size: 16px;
+  }
+  .dropitcon{
+    margin-top: 20px !important;
+  }
+  .form-control{
+    width: 100%;
+  }
+  #mode > .theme-change{
+    font-size: 16px;
+  }
+}
