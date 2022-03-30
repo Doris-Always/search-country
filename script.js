@@ -37,9 +37,17 @@ function getCountries() {
 }
 
 function renderDetails(countyName) {
-  let selectedCountry = filterCountriesByname(countyName);
+  //   let selectedCountry = filterCountriesByname(countyName);
   //   console.log(selectedCountry);
-  displayDetail(selectedCountry);
+  //   displayDetail(selectedCountry);
+  $("#countryDetailsModal").modal("show");
+  $.get(
+    "https://restcountries.com/v2/name/" + countyName + "?fullText=true",
+    function (response) {
+      $("#countryDetailsModal .modal-body").html(displayDetail(response));
+      $("#countryDetailsModal .modal-title").html(response[0].name);
+    }
+  );
 }
 
 function filterCountriesByname(countryName) {
@@ -48,7 +56,7 @@ function filterCountriesByname(countryName) {
   });
 }
 function displayDetail(country) {
-  console.log(country);
+  //   console.log(country);
   country = country[0];
   let countDetails = `
   <header>
@@ -108,12 +116,18 @@ function displayDetail(country) {
           </div>
           <div class ="w-100"></div>
           <div class="col-md-10 col-sm-12">
-            <p class="py-3"><b class="pe-2">Border Countries</b>:
-              <button class="btn country-button">${country.borders}</button>
-              <button class="btn country-button">${country.borders}</button>
-              <button class="btn country-button">${country.borders}</button>
-              
-            </p>
+          ${
+            typeof country.borders === "object"
+              ? `<p class="py-3">
+                <b class="pe-2">Border Countries</b>:
+                ${country.borders.map((elem, key) =>
+                  key <= 2
+                    ? `<button class="btn country-button">${elem}</button>`
+                    : null
+                )}
+              </p>`
+              : ""
+          }
           </div>
         </div>
       </div>
@@ -124,7 +138,8 @@ function displayDetail(country) {
 </section>`;
 
   //   $("#country-detail").html(countDetails);
-  $("#countryDetailsModal").modal("show");
-  $("#countryDetailsModal .modal-body").html(countDetails);
-  $("#countryDetailsModal .modal-title").html(country.name);
+  //   $("#countryDetailsModal").modal("show");
+  //   $("#countryDetailsModal .modal-body").html(countDetails);
+  //   $("#countryDetailsModal .modal-title").html(country.name);
+  return countDetails;
 }
